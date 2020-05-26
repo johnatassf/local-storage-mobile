@@ -1,0 +1,7 @@
+{
+  "name": "localStorage",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

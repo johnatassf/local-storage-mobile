@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>cadastro-contato</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content id="container">
+  <form [formGroup]="form" (ngSubmit)="salvarValores()">
+    <ion-item>
+      <ion-label>Nome</ion-label>
+      <ion-input type="text" formControlName="nome"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Telefone</ion-label>
+      <ion-textarea formControlName="telefone"></ion-textarea>
+    </ion-item>
+    <button ion-button outline>Salvar</button>
+  </form>
+</ion-content>

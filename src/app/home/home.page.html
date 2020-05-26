@@ -1,0 +1,59 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Contatos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div>
+          Nome
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          Telefone
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let contato of contatos ">
+      <ion-col>
+        <div>
+          {{contato.nome}}
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          {{contato.telefone}}
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          <button ion-button (click)="removerContato(contato)"><ion-icon name="heart"></ion-icon></button> 
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          <button ion-button (click)="updateContact(contato)"><ion-icon name="heart"></ion-icon></button> 
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-fab vertical="bottom" horizontal="end" slot="fixed" [routerLink]="['/cadastro-contato']" routerLinkActive="router-link-active" >
+  <ion-fab-button>
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
