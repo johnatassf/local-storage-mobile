@@ -8,13 +8,25 @@
   <form [formGroup]="form">
     <ion-item>
       <ion-label>Nome</ion-label>
-      <ion-input type="text" formControlName="nome"></ion-input>
+      <ion-input type="text" formControlName="nome"  ></ion-input>
+      <div *ngIf="form.controls.nome.errors">
+        <p *ngIf="form.controls.nome.errors.required">Campo obrigatório</p>
+        <p *ngIf="form.controls.nome.errors.minlength">Este campo deve ter no mínimo 2 caracteres</p>
+        <p *ngIf="form.controls.nome.errors.maxlength">Este campo deve ter no máximo 15 caracteres</p>
+      </div>
     </ion-item>
     <ion-item>
       <ion-label>Telefone</ion-label>
-      <ion-input formControlName="telefone" ></ion-input>
+      <ion-input formControlName="telefone" placeholder="ddd + número"></ion-input>
+      <div *ngIf="form.controls.telefone.errors">
+        <p *ngIf="form.controls.telefone.errors.required">Campo obrigatório</p>
+        <p *ngIf="form.controls.telefone.errors.pattern">Campo mal formatado</p>
+      </div>
     </ion-item>
   </form>
-  <button ion-button outline (click)="salvarValores()">Salvar</button>
-  <button ion-button outline (click)="goToHome()">Voltar</button>
+  
+  <ion-button outline (click)="salvarValores()" [disabled]="!form.valid" color="primary">Salvar</ion-button>
+  <ion-button outline (click)="goToHome()" color="primary">Voltar</ion-button>
+ 
+  
 </ion-content>

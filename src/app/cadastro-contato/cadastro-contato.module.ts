@@ -20,4 +20,6 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
   declarations: [CadastroContatoPage],
   providers:[NativeStorage]
 })
-export class CadastroContatoPageModule {}
+export class CadastroContatoPageModule {
+  
+}

@@ -9,7 +9,7 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col>
+      <ion-col  >
         <div>
           Nome
         </div>
@@ -39,18 +39,21 @@
           {{contato.telefone}}
         </div>
       </ion-col>
+      
       <ion-col>
         <div>
-          <button ion-button (click)="removerContato(contato)"><ion-icon name="heart"></ion-icon></button> 
+          <button ion-button (click)="updateContact(contato)"><ion-icon name="pencil-outline"></ion-icon></button> 
         </div>
       </ion-col>
       <ion-col>
         <div>
-          <button ion-button (click)="updateContact(contato)"><ion-icon name="heart"></ion-icon></button> 
+          <button ion-button (click)="removerContato(contato)"><ion-icon name="trash-outline"></ion-icon></button>
+
         </div>
       </ion-col>
     </ion-row>
   </ion-grid>
+  
 </ion-content>
 <ion-fab vertical="bottom" horizontal="end" slot="fixed" [routerLink]="['/cadastro-contato']" routerLinkActive="router-link-active" >
   <ion-fab-button>

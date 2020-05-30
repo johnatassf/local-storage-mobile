@@ -26,8 +26,16 @@ export class CadastroContatoPage implements OnInit {
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      nome: ['', Validators.required],
-      telefone: ['', Validators.required],
+      'nome': ['', Validators.compose([
+        Validators.required,
+        Validators.minLength(2),
+        Validators.maxLength(15),
+        
+      ])],
+      'telefone': ['', Validators.compose([
+        Validators.required,
+        Validators.pattern(/^[1-9]{2}[0-9]{4,5}[0-9]{4}$/)
+      ])],
     });
 
     if (this.route.snapshot.data['action'] === EnumAction.Update) {
