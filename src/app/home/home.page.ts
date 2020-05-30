@@ -15,6 +15,10 @@ export class HomePage {
   
   ionViewWillEnter(){
     this.contatos = JSON.parse(localStorage.getItem('contatos'));
+    
+    if(this.contatos == null){
+      this.saveLocalStorage([])
+    }
   }
 
   public removerContato(contato: Contato) {

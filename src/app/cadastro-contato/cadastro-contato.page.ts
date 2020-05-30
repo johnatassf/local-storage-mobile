@@ -18,6 +18,7 @@ export class CadastroContatoPage implements OnInit {
   private form: FormGroup;
   public contatos: Contato[] = [];
   id: number;
+  title: string
   constructor(private formBuilder: FormBuilder, public navCtrl: NavController, private route: ActivatedRoute) {
 
     this.contatos = JSON.parse(localStorage.getItem('contatos'));
@@ -34,15 +35,19 @@ export class CadastroContatoPage implements OnInit {
         this.id = +params['id'];
         this.loadContato(this.id);
       });
-    }
 
+      this.title = 'Atualizar Contato';
+    }else{
+      this.title = 'Cadastrar Contato';
+    }
+    
 
   }
 
   salvarValores() {
 
-    const id = this.contatos.length + 1;
-
+    const id = this.contatos.length == null ? 1 : this.contatos.length + 1;
+    
     if (this.route.snapshot.data['action'] === EnumAction.Update) {
       this.contatos = this.contatos.filter(c =>  c.id !== this.id);
 
@@ -54,7 +59,7 @@ export class CadastroContatoPage implements OnInit {
     }
     
     localStorage.setItem('contatos', JSON.stringify(this.contatos));
-    this.navCtrl.navigateRoot('home');
+    this.goToHome();
   }
 
     loadContato(id: number) {
@@ -62,6 +67,10 @@ export class CadastroContatoPage implements OnInit {
 
       this.form.controls.nome.patchValue(contato.nome);
       this.form.controls.telefone.patchValue(contato.telefone);
+    }
+
+    goToHome(){
+      this.navCtrl.navigateRoot('home');
     }
 
   }
