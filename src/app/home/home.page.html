@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="secondary">
     <ion-title>
       Contatos
     </ion-title>
@@ -9,7 +9,7 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col  >
+      <ion-col>
         <div>
           Nome
         </div>
@@ -20,12 +20,10 @@
         </div>
       </ion-col>
       <ion-col>
-        <div>
-        </div>
+        <div></div>
       </ion-col>
       <ion-col>
-        <div>
-        </div>
+        <div></div>
       </ion-col>
     </ion-row>
     <ion-row *ngFor="let contato of contatos ">
@@ -39,23 +37,27 @@
           {{contato.telefone}}
         </div>
       </ion-col>
-      
+
       <ion-col>
         <div>
-          <button ion-button (click)="updateContact(contato)"><ion-icon name="pencil-outline"></ion-icon></button> 
+          <button ion-button (click)="updateContact(contato)"><ion-icon name="pencil-outline"></ion-icon></button>
         </div>
       </ion-col>
       <ion-col>
         <div>
           <button ion-button (click)="removerContato(contato)"><ion-icon name="trash-outline"></ion-icon></button>
-
         </div>
       </ion-col>
     </ion-row>
   </ion-grid>
-  
 </ion-content>
-<ion-fab vertical="bottom" horizontal="end" slot="fixed" [routerLink]="['/cadastro-contato']" routerLinkActive="router-link-active" >
+<ion-fab
+  vertical="bottom"
+  horizontal="end"
+  slot="fixed"
+  [routerLink]="['/cadastro-contato']"
+  routerLinkActive="router-link-active"
+>
   <ion-fab-button>
     <ion-icon name="add"></ion-icon>
   </ion-fab-button>

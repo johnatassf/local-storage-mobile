@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="secondary">
     <ion-title>{{title}}</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -7,8 +7,9 @@
 <ion-content id="container">
   <form [formGroup]="form">
     <ion-item>
-      <ion-label>Nome</ion-label>
-      <ion-input type="text" formControlName="nome"  ></ion-input>
+      <ion-icon name="person" slot="start"></ion-icon>
+      <!--    <ion-label>Nome</ion-label> -->
+      <ion-input type="text" placeholder="Nome" formControlName="nome"></ion-input>
       <div *ngIf="form.controls.nome.errors">
         <p *ngIf="form.controls.nome.errors.required">Campo obrigatório</p>
         <p *ngIf="form.controls.nome.errors.minlength">Este campo deve ter no mínimo 2 caracteres</p>
@@ -16,7 +17,8 @@
       </div>
     </ion-item>
     <ion-item>
-      <ion-label>Telefone</ion-label>
+      <ion-icon name="call" slot="start"></ion-icon>
+      <!--  <ion-label>Telefone</ion-label> -->
       <ion-input formControlName="telefone" placeholder="ddd + número"></ion-input>
       <div *ngIf="form.controls.telefone.errors">
         <p *ngIf="form.controls.telefone.errors.required">Campo obrigatório</p>
@@ -24,9 +26,7 @@
       </div>
     </ion-item>
   </form>
-  
-  <ion-button outline (click)="salvarValores()" [disabled]="!form.valid" color="primary">Salvar</ion-button>
-  <ion-button outline (click)="goToHome()" color="primary">Voltar</ion-button>
- 
-  
+
+  <ion-button outline (click)="salvarValores()" [disabled]="!form.valid" color="tertiary">Salvar</ion-button>
+  <ion-button outline (click)="goToHome()" color="tertiary">Voltar</ion-button>
 </ion-content>
